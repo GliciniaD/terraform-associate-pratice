@@ -5,32 +5,32 @@ resource "azurerm_resource_group" "resourcegroup" { #2:rg is a local name which 
 #Module 2: Attribute ID will be something like subid_resourcegroup_terraform pratice
 
 
-removed {
-  from = azurerm_storage_account.storage
-
-  lifecycle {
-    destroy = false
-  }
-}
-
-
-# resource "azurerm_storage_account" "storage" {
-#   name                     = "tfpracticestorage01" #argument
-#   resource_group_name      = azurerm_resource_group.rg.name #argument,even if referencing from above
-#   location                 = azurerm_resource_group.rg.location
-#   account_tier             = "Standard"
-#   account_replication_type = "LRS"
-
-#   tags = {
-#     environment = "practice"
-#   }
-
-#   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
-#   depends_on = [azurerm_resource_group.rg]
+# removed {
+#   from = azurerm_storage_account.storage
 
 #   lifecycle {
-#     prevent_destroy = true
+#     destroy = false
 #   }
 # }
+#Block above used to remove storage out of state. I then imported it back in
+
+resource "azurerm_storage_account" "storage" {
+  name                     = "tfpracticestorage01" #argument
+  resource_group_name      = azurerm_resource_group.rg.name #argument,even if referencing from above
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  tags = {
+    environment = "practice"
+  }
+
+  # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
+  depends_on = [azurerm_resource_group.rg]
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
 
 #Attribute of both SubID/will only be known after apply.
