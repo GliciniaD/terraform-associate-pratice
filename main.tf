@@ -39,3 +39,13 @@ resource "azurerm_resource_group" "resourcegroup2" { #2:rg is a local name which
   name     = "terraform-pratice2"                    #2:Argument
   location = "West Europe"                          #2: Argument
 }
+
+#CallingAModule
+module "modulerg" {
+  source   = "./modules/resource-group"
+  name     = "rg-tf-associate-practice"
+  location = "West Europe"
+  tags = {
+    environment = "learning"
+  }
+}
