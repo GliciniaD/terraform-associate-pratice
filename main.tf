@@ -34,3 +34,8 @@ resource "azurerm_storage_account" "storage" {
 }
 
 #Attribute of both SubID/will only be known after apply.
+
+resource "azurerm_resource_group" "resourcegroup2" { #2:rg is a local name which i can use to reference below
+  name     = "terraform-pratice2"                    #2:Argument
+  location = "West Europe"                          #2: Argument
+}
