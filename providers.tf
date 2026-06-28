@@ -2,11 +2,11 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm" 
-      version = "~> 3.0"
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0" #provider version
     }
   }
-  required_version = ">= 1.15.6"
+  required_version = ">= 1.15.6" #terraform version
 }
 # >= minimum version contraint
 
@@ -17,7 +17,7 @@ provider "azurerm" {
   features {}
   subscription_id = "899effae-fb98-4b70-a9b9-94321a00bcdf"
 }
-  provider "azurerm" {
+provider "azurerm" {
   features {}
   alias           = "vpnproject"
   subscription_id = "408c57c0-9544-4c34-a2c4-4320359d01f1"
