@@ -2,10 +2,11 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm" 
       version = "~> 3.0"
     }
   }
+  required_version = ">= 1.15.6"
 }
 # >= minimum version contraint
 
@@ -28,3 +29,5 @@ provider "azurerm" {
 
 #Re the different providers. If I dont specify it, resources are deployed to first sub (default - cloud one).
 #If I add a providers block to resource, it deploys to second/or whatever I add
+
+
