@@ -16,8 +16,8 @@ resource "azurerm_resource_group" "resourcegroup" { #2:rg is a local name which 
 
 resource "azurerm_storage_account" "storage" {
   name                     = "tfpracticestorage01"          #argument
-  resource_group_name      = azurerm_resource_group.resourcegroup #argument,even if referencing from above
-  location                 = azurerm_resource_group.resourcegroup
+  resource_group_name      = azurerm_resource_group.resourcegroup.name #argument,even if referencing from above
+  location                 = azurerm_resource_group.resourcegroup.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
