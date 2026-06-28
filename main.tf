@@ -41,11 +41,8 @@ resource "azurerm_resource_group" "resourcegroup2" { #2:rg is a local name which
 }
 
 #CallingAModule
-module "modulerg" {
+module "modresourcegroup" {
   source   = "./modules/resource-group"
   name     = "rg-tf-associate-practice"
   location = "West Europe"
-  tags = {
-    environment = "learning"
-  }
 }
