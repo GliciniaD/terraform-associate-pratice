@@ -16,8 +16,8 @@ resource "azurerm_resource_group" "resourcegroup" { #2:rg is a local name which 
 
 resource "azurerm_storage_account" "storage" {
   name                     = "tfpracticestorage01"          #argument
-  resource_group_name      = azurerm_resource_group.rg.name #argument,even if referencing from above
-  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.resourcegroup #argument,even if referencing from above
+  location                 = azurerm_resource_group.resourcegroup
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
@@ -26,7 +26,7 @@ resource "azurerm_storage_account" "storage" {
   }
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
-  depends_on = [azurerm_resource_group.rg]
+  depends_on = [azurerm_resource_group.resourcegroup]
 
   lifecycle {
     prevent_destroy = true
