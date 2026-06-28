@@ -42,7 +42,7 @@ resource "azurerm_resource_group" "resourcegroup2" { #2:rg is a local name which
 
 #CallingAModule
 module "modresourcegroup" {
-  source   = "./modules/modresource-group"
+  source   = "./modules/modresourcegroup"
   name     = "rg-module-tf-associate-practice"
   location = "West Europe"
 }
