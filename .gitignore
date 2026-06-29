@@ -6,3 +6,5 @@ crash.log
 *.tfvars
 tfplan
 tfplan.json
+tfplan-input-var.plan
+tfplan-input-var
