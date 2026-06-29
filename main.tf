@@ -45,4 +45,5 @@ module "modresourcegroup" {
   source   = "./modules/modresourcegroup"
   name     = "rg-module-tf-associate-practice"
   location = "West Europe"
+  tags = var.rg_tags
 }
