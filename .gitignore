@@ -8,3 +8,7 @@ tfplan
 tfplan.json
 tfplan-input-var.plan
 tfplan-input-var
+tfplan*
+*.tfplan
+*.tfplan.json
+crash.log
