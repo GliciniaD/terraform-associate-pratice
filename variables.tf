@@ -25,7 +25,7 @@ variable "rg_tags" {
   type        = map(string)
   default     = {
     project     = "terraformassociate",
-    environment = "dev"
+    environment = "dev", 
     creator = "glicinia"
 
   }
