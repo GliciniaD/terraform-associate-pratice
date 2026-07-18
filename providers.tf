@@ -31,3 +31,4 @@ provider "azurerm" {
 #If I add a providers block to resource, it deploys to second/or whatever I add
 
 
+#Here I could have also used data config to pull current sub im in 

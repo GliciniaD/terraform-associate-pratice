@@ -1,4 +1,5 @@
 #Created this so I can see the resource IDs of what has already been created
+#It can also be created so we use the terraform_data_remove state thing
 
 # output "resource_group_id" {
 #   value = azurerm_resource_group.rg.id

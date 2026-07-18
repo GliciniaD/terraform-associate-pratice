@@ -1,3 +1,5 @@
+#Rg I created using root module
+
 resource "azurerm_resource_group" "resourcegroup" { #2:rg is a local name which i can use to reference below
   name     = "terraform-pratice"                    #2:Argument
   location = "West Europe"                          #2: Argument
@@ -27,20 +29,11 @@ resource "azurerm_storage_account" "storage" {
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
   depends_on = [azurerm_resource_group.resourcegroup]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 #Attribute of both SubID/will only be known after apply.
 
-resource "azurerm_resource_group" "resourcegroup2" { #2:rg is a local name which i can use to reference below
-  name     = "terraform-pratice2"                    #2:Argument
-  location = "West Europe"                           #2: Argument
-}
-
-#CallingAModule
+#Calling a child module to create rg.
 module "modresourcegroup" {
   source   = "./modules/modresourcegroup"
   name     = "rg-module-tf-associate-practice"
