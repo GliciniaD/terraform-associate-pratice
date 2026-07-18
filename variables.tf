@@ -15,7 +15,8 @@ variable "stg_replication_type" {
   type        = list(string)
   default     = [
     "LRS",
-    "ZRS"
+    "ZRS",
+    "GRS"
   ]
 }
 
