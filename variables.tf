@@ -4,6 +4,20 @@ variable "strg_acc_tier" {
   default     = "standard"
 }
 
+Other types: bool, number
+
+#Variable list, which Ill refer by number in the order
+
+variable "stg_replication_type" {
+  description = "Storage repelication type"
+  type        = list(string)
+  default     = [
+    "LRS",
+    "ZRS"
+  ]
+}
+
+
 variable "rg_tags" {
   description = "Tags to apply to the resource group"
   type        = map(string)
