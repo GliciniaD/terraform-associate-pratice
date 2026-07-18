@@ -1,10 +1,12 @@
+
+#4C exercice
 variable "strg_acc_tier" {
   description = "storage tier"
   type        = string
   default     = "standard"
 }
 
-#Other types: bool, number
+#4.c.Other types: bool, number
 
 #Variable list, which Ill refer by number in the order
 

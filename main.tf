@@ -20,7 +20,7 @@ resource "azurerm_storage_account" "storage" {
   resource_group_name      = azurerm_resource_group.resourcegroup.name #argument,even if referencing from above
   location                 = azurerm_resource_group.resourcegroup.location
   account_tier             = var.strg_acc_tier
-  account_replication_type = "LRS"
+  account_replication_type = var.stg_replication_type [0]
 
   tags = {
     environment = "practice"
