@@ -3,6 +3,7 @@
 resource "azurerm_resource_group" "resourcegroup" { #2:rg is a local name which i can use to reference below
   name     = "terraform-pratice"                    #2:Argument
   location = "West Europe"                          #2: Argument
+  tags = var.rg_tags
 }
 
 #Module 2: Attribute ID will be something like subid_resourcegroup_terraform pratice
@@ -21,10 +22,7 @@ resource "azurerm_storage_account" "storage" {
   location                 = azurerm_resource_group.resourcegroup.location
   account_tier             = var.strg_acc_tier
   account_replication_type = var.stg_replication_type [0]
-
-  tags = {
-    environment = "practice"
-  }
+  tags = var.rg_tags
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
   depends_on = [azurerm_resource_group.resourcegroup]
