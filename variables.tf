@@ -3,7 +3,7 @@
 variable "strg_acc_tier" {
   description = "storage tier"
   type        = string
-  default     = "standard"
+  default     = "Standard"
 }
 
 #4.c.Other types: bool, number
