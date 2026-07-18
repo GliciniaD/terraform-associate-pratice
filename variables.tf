@@ -4,7 +4,7 @@ variable "strg_acc_tier" {
   default     = "standard"
 }
 
-Other types: bool, number
+#Other types: bool, number
 
 #Variable list, which Ill refer by number in the order
 
