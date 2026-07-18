@@ -20,9 +20,13 @@ variable "stg_replication_type" {
   ]
 }
 
-
 variable "rg_tags" {
   description = "Tags to apply to the resource group"
   type        = map(string)
-  default     = {}
+  default     = {
+    project     = "terraformassociate",
+    environment = "dev"
+    creator = "glicinia"
+
+  }
 }
