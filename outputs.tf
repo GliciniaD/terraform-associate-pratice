@@ -21,6 +21,6 @@ output "root_resource_group_location" {
    value = azurerm_storage_account.storage.id
  }
 
-
-
-#To see it run terraform Apply and check the output
+output "storage_primary_key_unsafe" {
+  value = azurerm_storage_account.storage.primary_access_key
+}
