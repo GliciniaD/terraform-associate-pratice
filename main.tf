@@ -38,8 +38,15 @@ module "modresourcegroup" {
   tags     = var.rg_tags
 }
 
-#Creating rg using tfvars
+#Creating rg using tfvars  
+#Block Has to be defined here, then add vars to var.tf and then terraform.tfvars
 resource "azurerm_resource_group" "tvarsrg" {
   name     = var.tfvarsresource_group_name
   location = var.tfvarslocation
+}
+
+#Creating rg name using interpolation
+resource "azurerm_resource_group" "interpolationnameofresourcegroup" { 
+  name     = "rg-${var.interpo_projectname}-$(var.interpo_environment}                 
+  location = "West Europe"                         
 }

@@ -41,3 +41,17 @@ variable "tfvarslocation" {
   type        = string
   description = "Azure region"
 }
+
+#Variables For interpolated rg
+
+variable "interpo_projectname" {
+  type        = string
+  description = "projectname"
+  default = "terr-proj"
+}
+
+variable "interpo_environment" {
+  type        = string
+  description = "environment"
+  default = "dev"
+}
