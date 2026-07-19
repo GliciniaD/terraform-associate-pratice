@@ -1,4 +1,4 @@
-#Created this so I can see the resource IDs of what has already been created
+#Created this so I can pratice outputting info from rg of what has already been created
 #It can also be created so we use the terraform_data_ state thing
 
 output "root_resource_group_id" {

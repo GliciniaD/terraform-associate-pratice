@@ -18,14 +18,14 @@ resource "azurerm_resource_group" "rootresourcegroup" { #2:rg is a local name wh
 
 resource "azurerm_storage_account" "storage" {
   name                     = "tfpracticestorage01"                     #argument
-  resource_group_name      = azurerm_resource_group.resourcegroup.name #argument,even if referencing from above
-  location                 = azurerm_resource_group.resourcegroup.location
+  resource_group_name      = azurerm_resource_group.rootresourcegroup.name #argument,even if referencing from above
+  location                 = azurerm_resource_group.rootresourcegroup.location
   account_tier             = var.strg_acc_tier
   account_replication_type = var.stg_replication_type [0]
   tags = var.rg_tags
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
-  depends_on = [azurerm_resource_group.resourcegroup]
+  depends_on = [azurerm_resource_group.rootresourcegroup]
 }
 
 #Attribute of both SubID/will only be known after apply.
