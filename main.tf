@@ -48,5 +48,5 @@ resource "azurerm_resource_group" "tvarsrg" {
 #Creating rg name using interpolation
 resource "azurerm_resource_group" "interpolationnameofresourcegroup" { 
   name     = "rg-${var.interpo_projectname}-$(var.interpo_environment}                 
-  location = "West Europe"                         
+  location = "uksouth"                         
 }
