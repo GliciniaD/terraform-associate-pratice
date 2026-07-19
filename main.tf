@@ -37,3 +37,9 @@ module "modresourcegroup" {
   location = "West Europe"
   tags     = var.rg_tags
 }
+
+#Creating rg using tfvars
+resource "azurerm_resource_group" "this" {
+  name     = var.tfvarsresource_group_name
+  location = var.tfvarslocation
+}

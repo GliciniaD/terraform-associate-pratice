@@ -30,3 +30,14 @@ variable "rg_tags" {
 
   }
 }
+
+# Variables for tvars rg. 
+variable "tfvarsresource_group_name" {
+  type        = string
+  description = "Name of the resource group"
+}
+
+variable "tvarslocation" {
+  type        = string
+  description = "Azure region"
+}
