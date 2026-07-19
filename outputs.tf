@@ -25,4 +25,5 @@ output "root_resource_group_location" {
 #4.c. tutorial 2- 2Added to pratice redacting sensitive outputs 
 output "storage_primary_key_unsafe" {
   value = azurerm_storage_account.storage.primary_access_key
+  sensitive = true
 }
