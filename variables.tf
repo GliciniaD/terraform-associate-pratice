@@ -37,7 +37,7 @@ variable "tfvarsresource_group_name" {
   description = "Name of the resource group"
 }
 
-variable "tvarslocation" {
+variable "tfvarslocation" {
   type        = string
   description = "Azure region"
 }
