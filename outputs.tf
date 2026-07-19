@@ -1,4 +1,4 @@
-#Created this so I can pratice outputting info from rg of what has already been created
+#4.c. tutorial 2- Created this so I can pratice outputting info from rg of what has already been created
 #It can also be created so we use the terraform_data_ state thing
 
 output "root_resource_group_id" {
@@ -21,6 +21,8 @@ output "root_resource_group_location" {
    value = azurerm_storage_account.storage.id
  }
 
+
+#4.c. tutorial 2- 2Added to pratice redacting sensitive outputs 
 output "storage_primary_key_unsafe" {
   value = azurerm_storage_account.storage.primary_access_key
 }
