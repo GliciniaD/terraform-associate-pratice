@@ -13,3 +13,4 @@ tfplan*
 *.tfplan.json
 crash.log
 outputs.tf
+outputs.tf
