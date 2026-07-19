@@ -39,7 +39,7 @@ module "modresourcegroup" {
 }
 
 #Creating rg using tfvars
-resource "azurerm_resource_group" "this" {
+resource "azurerm_resource_group" "tvarsrg" {
   name     = var.tfvarsresource_group_name
   location = var.tfvarslocation
 }
