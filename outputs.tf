@@ -1,12 +1,24 @@
 #Created this so I can see the resource IDs of what has already been created
-#It can also be created so we use the terraform_data_remove state thing
+#It can also be created so we use the terraform_data_ state thing
 
-# output "resource_group_id" {
-#   value = azurerm_resource_group.rg.id
-# }
+output "root_resource_group_id" {
+    description = "full id of rg" 
+   value = azurerm_resource_group.rootresourcegroup.id
+ }
 
-# output "storage_account_id" {
-#   value = azurerm_storage_account.storage.id
-# }
+
+output "root_resource_group_name" {
+    description = "name of root rg" 
+   value = azurerm_resource_group.rootresourcegroup.name
+ }
+
+output "root_resource_group_location" {
+    description = " location of root rg" 
+   value = azurerm_resource_group.rootresourcegroup.location
+ } 
+
+ output "storage_account_id" {
+   value = azurerm_storage_account.storage.id
+ }
 
 #To see it run terraform Apply and check the output
