@@ -57,3 +57,17 @@ variable "interpo_environment" {
 }
 
 #Variables for tutorial on 4e. conditional expression 
+#Where I'll create rg using a conditional expression
+#added expression to locals
+
+variable "rg_name_override_conditional_expression" {
+  type        = string
+  description = "Optional override for the resource group name"
+  default     = "defaultname"
+}
+
+variable "environment_rg_name_conditional_expression" {
+  type    = string
+  default = "dev"
+}
+

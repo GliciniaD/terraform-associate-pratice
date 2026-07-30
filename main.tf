@@ -50,3 +50,8 @@ resource "azurerm_resource_group" "interpolationnameofresourcegroup" {
   name     = "rg-${var.interpo_projectname}-${var.interpo_environment}"                 
   location = "uksouth"                         
 }
+
+resource "azurerm_resource_group" "conditional_name_resourcegroup" { 
+  name     = local.rg_name    #           
+  location = "uksouth"                         
+}
