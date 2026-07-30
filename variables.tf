@@ -63,7 +63,7 @@ variable "interpo_environment" {
 variable "rg_name_override_conditional_expression" {
   type        = string
   description = "Optional override for the resource group name"
-  default     = "defaultname"
+  default     = ""
 }
 
 variable "environment_rg_name_conditional_expression" {
