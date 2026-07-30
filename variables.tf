@@ -55,3 +55,5 @@ variable "interpo_environment" {
   description = "environment"
   default = "dev"
 }
+
+#Variables for tutorial on 4e. conditional expression 
