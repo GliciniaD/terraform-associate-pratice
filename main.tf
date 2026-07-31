@@ -58,8 +58,8 @@ resource "azurerm_resource_group" "conditional_name_resourcegroup" {
 }
 
 #Rg group using conditional count so I can pratice it 4e1
-resource "azurerm_resource_group" "conditional_count_resourcegroup" { 
-  name     = rg-cont-count     
+resource "azurerm_resource_group" "count_resourcegroup" { 
+  name     = "rgcontcount"     
   count    = var.high_availability ? 3 : 1   #that var is a bool, true or false.   
   location = "uksouth"                         
 }
