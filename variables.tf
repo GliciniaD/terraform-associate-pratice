@@ -71,3 +71,11 @@ variable "environment_rg_name_conditional_expression" {
   default = "dev"
 }
 
+#Adding variable so I can pratice counts, 4.e.1.
+#Ill add it to a rg and basically set a variable when passing terraform apply as true to see 3 being created. 
+variable "high_availability" {
+  type        = bool
+  description = "If true, create 3 resource groups instead of 1"
+  default     = false
+}
+
