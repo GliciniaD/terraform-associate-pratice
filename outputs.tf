@@ -39,3 +39,8 @@ output "first_rg_name" {
   description = "Name of just the first resource group"
   value       = azurerm_resource_group.count_resourcegroup[0].name
 }
+
+output "all_rg_ids" {
+  description = "Names of all resource groups created"
+  value       = azurerm_resource_group.count_resourcegroup[*].id
+}
