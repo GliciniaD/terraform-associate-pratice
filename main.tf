@@ -51,7 +51,9 @@ resource "azurerm_resource_group" "interpolationnameofresourcegroup" {
   location = "uksouth"                         
 }
 
+#Rg using conditional expression from local (if true add this name, if false add the later)
 resource "azurerm_resource_group" "conditional_name_resourcegroup" { 
   name     = local.rg_name    #           
   location = "uksouth"                         
 }
+
