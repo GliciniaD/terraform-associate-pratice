@@ -27,3 +27,15 @@ output "storage_primary_key_unsafe" {
   value = azurerm_storage_account.storage.primary_access_key
   sensitive = true
 }
+
+#4e1. I created 3 rgs using count and now I want a way to see all the names
+output "all_rg_names" {
+  description = "Names of all resource groups created"
+  value       = azurerm_resource_group.interpolated[*].name
+}
+
+#4e1 i created 3 rgs but wanna see the name of just the first one
+output "first_rg_name" {
+  description = "Name of just the first resource group"
+  value       = azurerm_resource_group.interpolated[0].name
+}
