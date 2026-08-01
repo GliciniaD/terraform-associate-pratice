@@ -74,7 +74,6 @@ resource "azurerm_resource_group" "lookup_resourcegroup" {
 
 #4e2 = Creating a rg using to templatefile to fill in description using tags assigned
 
-
 resource "azurerm_resource_group" "rg_template_file_functin" {
   name     = "rg-template-file-function"
   location = "westeurope"
@@ -85,5 +84,17 @@ resource "azurerm_resource_group" "rg_template_file_functin" {
       template_file_environment = "Dev"
       template_file_owner       = "Glicinia" #It can be straight string or assign variable
     })
+  }
+}
+
+#4e2 = Creating a rg using to file function to it passes plain text as plain string,
+#No placeholder filling 
+
+resource "azurerm_resource_group" "rg_file_function" {
+  name     = "rg-file-function"
+  location = "uksouth"
+
+  tags = {
+    notes = file("${path.module}/file-function-notes.txt")
   }
 }

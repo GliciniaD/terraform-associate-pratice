@@ -1,1 +1,2 @@
-This is a text example. Unlike template function, this only spits out raw text. It does not replace things that have placeholders on them. 
+This is a text example. Unlike template function, this only spits out raw text. 
+It does not replace things that have placeholders on them. 
