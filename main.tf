@@ -65,10 +65,25 @@ resource "azurerm_resource_group" "count_resourcegroup" {
 }
 
 
-#4e2 = Creating a rg sing lookup to look up location  #default environment is dev so will default to uks
+#4e2 = Creating a rg using lookup to look up location  #default environment is dev so will default to uks
 # But if env isnt filled in, it will default to west europe 
 resource "azurerm_resource_group" "lookup_resourcegroup" { 
   name     = "rglookupfunction"     
   location = lookup(var.lookup_function_location, var.look_up_function_env, "westeurope")
 }                         
 
+#4e2 = Creating a rg using to templatefile to fill in description using tags assigned
+
+
+resource "azurerm_resource_group" "interpolated" {
+  name     = "rg-${var.environment}-${var.team}"
+  location = "westeurope"
+
+  tags = {
+    description = templatefile("${path.module}/rg-description.tftpl", {
+      team        = var.template_file_team 
+      environment = "Dev"
+      owner       = "Glicinia" #It can be straight string or assign variable
+    })
+  }
+}

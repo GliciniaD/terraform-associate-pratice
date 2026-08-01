@@ -96,4 +96,11 @@ variable "look_up_function_env" {
 }
 
 
+#4e2 = Creating a rg using to templatefile to fill in description using tags assigned
+
+variable "template_file_team" {
+  type    = string
+  default = "Cloud Operations"
+}
+
 
