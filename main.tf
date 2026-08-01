@@ -75,8 +75,8 @@ resource "azurerm_resource_group" "lookup_resourcegroup" {
 #4e2 = Creating a rg using to templatefile to fill in description using tags assigned
 
 
-resource "azurerm_resource_group" "interpolated" {
-  name     = "rg-${var.environment}-${var.team}"
+resource "azurerm_resource_group" "rg_template_file_functin" {
+  name     = "rg-template-file-function"
   location = "westeurope"
 
   tags = {
