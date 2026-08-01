@@ -63,3 +63,12 @@ resource "azurerm_resource_group" "count_resourcegroup" {
   count    = var.high_availability ? 3 : 1   #that var is a bool, true or false.   
   location = "uksouth"                         
 }
+
+
+#4e2 = Creating a rg sing lookup to look up location  #default environment is dev so will default to uks
+# But if env isnt filled in, it will default to west europe 
+resource "azurerm_resource_group" "lookup_resourcegroup" { 
+  name     = "rglookupfunction"     
+  location = lookup(var.lookup_function_location, var.look_up_function_env, "westeurope")
+}                         
+
