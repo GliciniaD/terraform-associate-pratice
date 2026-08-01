@@ -79,9 +79,9 @@ variable "high_availability" {
   default     = false
 }
 
-#4e2 = Using lookup function 
+#4e2 = Using lookup function on a rg to look up location
 
-variable "location_map" {
+variable "location_map_lookup_function" {
   type = map(string)
   default = {
     dev  = "westeurope"
@@ -90,7 +90,7 @@ variable "location_map" {
   }
 }
 
-variable "environment" {
+variable "look_up_location_map" {
   type    = string
   default = "dev"
 }
