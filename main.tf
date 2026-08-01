@@ -81,9 +81,9 @@ resource "azurerm_resource_group" "rg_template_file_functin" {
 
   tags = {
     description = templatefile("${path.module}/rg-description.tftpl", {
-      team        = var.template_file_team 
-      environment = "Dev"
-      owner       = "Glicinia" #It can be straight string or assign variable
+      template_file_team        = var.template_file_team 
+      template_file_environment = "Dev"
+      template_file_owner       = "Glicinia" #It can be straight string or assign variable
     })
   }
 }
