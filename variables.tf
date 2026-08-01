@@ -79,3 +79,21 @@ variable "high_availability" {
   default     = false
 }
 
+#4e2 = Using lookup function 
+
+variable "location_map" {
+  type = map(string)
+  default = {
+    dev  = "westeurope"
+    test = "northeurope"
+    prod = "uksouth"
+  }
+}
+
+variable "environment" {
+  type    = string
+  default = "dev"
+}
+
+
+
