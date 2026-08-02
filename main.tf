@@ -116,7 +116,7 @@ check "check_rg_region" {
   }
 #condition to make sure rg location is in west europe (which should error out  and its in uks but still create ).  
   assert {
-    condition     = length(azurerm_resource_group.rg_check_function.example.name) <= 16
+    condition     = length(azurerm_resource_group.rg_check_function.rg_check_function.name) <= 16
     error_message = "Resource account name exceeds 16 character limit."
   }
 }  
