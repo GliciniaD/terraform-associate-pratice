@@ -120,6 +120,7 @@ check "check_rg_region" {
     condition     = length(azurerm_resource_group.rg_check_function.name) <= 16
     error_message = "Resource account name exceeds 16 character limit."
   }
+}
 
 #4g2 - adding the check location conditions VIA data.
 # check that uses a data source to re-read the same resource group independently — the point of trying this is to see that 
@@ -134,6 +135,4 @@ check "check_rg_via_data" {
     condition     = data.azurerm_resource_group.rg_check_lookup.location == "westeurope"
     error_message = "Data source lookup shows RG ${data.azurerm_resource_group.rg_check_lookup.name} is in ${data.azurerm_resource_group.rg_check_lookup.location}, not West Europe."
   }
-}
-
 }  
