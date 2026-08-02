@@ -122,6 +122,8 @@ check "check_rg_region" {
   }
 
 #4g2 - adding the check location conditions VIA data.
+# check that uses a data source to re-read the same resource group independently — the point of trying this is to see that 
+# Terraform queries it fresh via the data source, separately from the resource's own state
 
 check "check_rg_via_data" {
   data "azurerm_resource_group" "rg_check_lookup" {
