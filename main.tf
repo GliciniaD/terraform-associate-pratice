@@ -98,3 +98,25 @@ resource "azurerm_resource_group" "rg_file_function" {
     notes = file("${path.module}/file-function-notes.txt")
   }
 }
+
+#4g1 - using check to validate parts of rg creation
+
+#4g1 - creating rg
+resource "azurerm_resource_group" "rg_check_function" {
+  name     = "rg-check-function-long-name"
+  location = "uksouth"
+}
+#4g2 - adding the check conditions
+
+check "check_rg_region" {
+#condition to make sure rg location is in west europe (which should error out  and its in uks but still create ) 
+  assert {
+    condition     = azurerm_resource_group.rg_check_function.location == "westeurope"
+    error_message = "Resource group ${azurerm_resource_group.rg_check_function.name} is not in West Europe as expected."
+  }
+#condition to make sure rg location is in west europe (which should error out  and its in uks but still create ).  
+  assert {
+    condition     = length(azurerm_resource_group.rg_check_function.example.name) <= 16
+    error_message = "Resource account name exceeds 16 character limit."
+  }
+}  
