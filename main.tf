@@ -137,4 +137,21 @@ check "check_rg_via_data" {
   }
 }  
 
-#4g2 - using precondition within lifecycle
+#4g2 - using precondition and post within lifecycle
+
+resource "azurerm_resource_group" "prepostcondition_rg" {
+  name     = "rg-pre-post-condition-lifecycle"
+  location = "uksouth"
+
+  lifecycle {
+    precondition { #made it to limit rg name to 10 characters so it will fail.
+      condition     = length(azurerm_resource_group.prepostcondition_rg) <= 10
+      error_message = "Resource group name exceeds company's 10 character limit."
+    }
+
+    postcondition { #Creating it in uks but condition points to ukwest. Should error out
+      condition     = self.location == "ukwest"
+      error_message = "Resource group was created in ${self.location}, but expected ${azurerm_resource_group.prepostcondition_rg.location}."
+    }
+  }
+}
