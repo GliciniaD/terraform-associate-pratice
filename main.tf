@@ -107,7 +107,7 @@ resource "azurerm_resource_group" "rg_check_function" {
   location = "uksouth"
 }
 
-#4g2 - adding the check conditions
+#4g1 - adding the check conditions
 
 check "check_rg_region" {
 #condition to make sure rg location is in west europe (which should error out  and its in uks but still create ) 
@@ -122,7 +122,7 @@ check "check_rg_region" {
   }
 }
 
-#4g2 - adding the check location conditions VIA data.
+#4g1 - adding the check location conditions VIA data.
 # check that uses a data source to re-read the same resource group independently — the point of trying this is to see that 
 # Terraform queries it fresh via the data source, separately from the resource's own state
 
@@ -136,3 +136,5 @@ check "check_rg_via_data" {
     error_message = "Data source lookup shows RG ${data.azurerm_resource_group.rg_check_lookup.name} is in ${data.azurerm_resource_group.rg_check_lookup.location}, not West Europe."
   }
 }  
+
+#4g2 - using precondition within lifecycle
