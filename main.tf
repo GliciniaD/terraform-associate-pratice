@@ -141,9 +141,8 @@ check "check_rg_via_data" {
 #to put it inside the lifecycle
 
 variable "rg_prepostcond" {
-  default = "rg-pre-post-condition-lifecycle"
+  default = "rgprepostc"
 }
-
 
 resource "azurerm_resource_group" "prepostcondition_rg" {
   name     = var.rg_prepostcond
