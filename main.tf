@@ -137,15 +137,21 @@ check "check_rg_via_data" {
   }
 }  
 
-#4g2 - using precondition and post within lifecycle and creating a var for name of var
+#4g2 - using precondition and post within lifecycle (and creating a var for name of rg so I can add it to lifecycle
+#to put it inside the lifecycle
+
+variable "rg_prepostcond" {
+  default = "rg-pre-post-condition-lifecycle"
+}
+
 
 resource "azurerm_resource_group" "prepostcondition_rg" {
-  name     = "rg-pre-post-condition-lifecycle"
+  name     = var.rg_prepostcond
   location = "uksouth"
 
   lifecycle {
     precondition {  #check that rg name is less than 1- characters 
-      condition     = length("rg-pre-post-condition-lifecycle") <= 10
+      condition     = length(var.rg_prepostcond) <= 10
       error_message = "Resource group name exceeds company's 10 character limit."
     }
 
