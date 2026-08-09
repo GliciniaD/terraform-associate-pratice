@@ -144,14 +144,14 @@ resource "azurerm_resource_group" "prepostcondition_rg" {
   location = "uksouth"
 
   lifecycle {
-    precondition { #made it to limit rg name to 10 characters so it will fail.
-      condition     = length(azurerm_resource_group.prepostcondition_rg) <= 10
+    precondition {
+      condition     = length("rg-pre-post-condition-lifecycle") <= 10
       error_message = "Resource group name exceeds company's 10 character limit."
     }
 
-    postcondition { #Creating it in uks but condition points to ukwest. Should error out
+    postcondition {
       condition     = self.location == "ukwest"
-      error_message = "Resource group was created in ${self.location}, but expected ${azurerm_resource_group.prepostcondition_rg.location}."
+      error_message = "Resource group was created in ${self.location}, but expected ukwest."
     }
   }
 }
