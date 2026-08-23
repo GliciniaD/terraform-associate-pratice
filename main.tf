@@ -167,7 +167,7 @@ resource "azurerm_resource_group" "prepostcondition_rg" {
 
 variable "env_name" {
   type    = string
-  default = "dev"
+  default = "test"
 }
 
 resource "azurerm_resource_group" "createb4destroy_rg" {
