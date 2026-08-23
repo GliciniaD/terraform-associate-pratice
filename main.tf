@@ -173,8 +173,4 @@ variable "env_name" {
 resource "azurerm_resource_group" "createb4destroy_rg" {
   name     = "rg-${var.env_name}-network"
   location = "uksouth"
-
-  lifecycle {
-    create_before_destroy = false 
-  }
 }
