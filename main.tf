@@ -175,6 +175,6 @@ resource "azurerm_resource_group" "createb4destroy_rg" {
   location = "uksouth"
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false 
   }
 }
