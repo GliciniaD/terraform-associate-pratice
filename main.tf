@@ -190,3 +190,6 @@ resource "azurerm_resource_group" "createb4destroy_rg" {
 #  some_secret_wo         = ephemeral.random_password.example.result
 #  some_secret_wo_version = local.secret_version
 #}
+
+#4h1-Sentive values
+# If we marked a value as sensitive, it doesnt show in plan BUT we can unmask it easily put checking output logs/state
