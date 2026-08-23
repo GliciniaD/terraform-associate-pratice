@@ -25,7 +25,7 @@ resource "azurerm_storage_account" "storage" {
   tags = var.rg_tags
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
-  depends_on = [azurerm_resource_group.createb4destroy_rg]
+  depends_on = [azurerm_resource_group.rootresourcegroup]
 }
 
 #Attribute of both SubID/will only be known after apply.
@@ -173,4 +173,12 @@ variable "env_name" {
 resource "azurerm_resource_group" "createb4destroy_rg" {
   name     = "rg-${var.env_name}-network"
   location = "uksouth"
+
+  lifecycle {
+    create_before_destroy = true
+  }  
 }
+
+#N.B. On output, when I change variable (which forces replacement)
+#-/+ = will destroy and then create (if I dont have lifecycle block)
+#+/- = will create then destroy
