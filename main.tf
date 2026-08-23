@@ -155,11 +155,12 @@ resource "azurerm_resource_group" "prepostcondition_rg" {
     }
 
     postcondition { #RG will be in uksouth but condition is ukwest.so it will it fail post condition
-      condition     = self.location == "ukwest"
+      condition     = self.location == "uksouth"
       error_message = "Resource group was created in ${self.location}, but expected ukwest."
     }
   }
 }
+#I changed condition to uksouth as it kept failing and it wouldnt let me run terraform apply on other resources
 
 #4h1: lifecycle { create_before_destroy = true } 
 #Experiment, Create a rg name using interpolated. Coz if I change var name, it will recreate.
