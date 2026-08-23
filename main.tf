@@ -182,3 +182,11 @@ resource "azurerm_resource_group" "createb4destroy_rg" {
 #N.B. On output, when I change variable (which forces replacement)
 #-/+ = will destroy and then create (if I dont have lifecycle block)
 #+/- = will create then destroy
+
+
+#4h1:Ephemeral (never gets added to state or plan)- write only value. Always followed by wo_version
+#resource "azurerm_storage_account" "example" {
+  # ...
+#  some_secret_wo         = ephemeral.random_password.example.result
+#  some_secret_wo_version = local.secret_version
+#}
