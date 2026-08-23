@@ -25,7 +25,7 @@ resource "azurerm_storage_account" "storage" {
   tags = var.rg_tags
 
   # ── Meta-arguments (special, provider-agnostic, control Terraform's behaviour) ──
-  depends_on = [azurerm_resource_group.rootresourcegroup]
+  depends_on = [azurerm_resource_group.createb4destroy_rg]
 }
 
 #Attribute of both SubID/will only be known after apply.
