@@ -160,3 +160,20 @@ resource "azurerm_resource_group" "prepostcondition_rg" {
     }
   }
 }
+
+#4h1: lifecycle { create_before_destroy = true } 
+#Experiment, Create a rg name using interpolated. Coz if I change var name, it will recreate.
+
+variable "env_name" {
+  type    = string
+  default = "dev"
+}
+
+resource "azurerm_resource_group" "createb4destroy_rg" {
+  name     = "rg-${var.env_name}-network"
+  location = "uksouth"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
